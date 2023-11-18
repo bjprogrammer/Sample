@@ -52,6 +52,7 @@ class ChildFragment : Fragment() {
                 val list = messageList?.messages?.toMutableList()?: arrayListOf()
                 list.add(message)
                 chatAdapter.updateList(list)
+                binding.etMsg.setText("")
             }
         }
     }

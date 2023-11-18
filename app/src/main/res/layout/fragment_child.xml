@@ -58,6 +58,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/etMsg"
             app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:background="@color/colorPrimaryDark"
             android:layout_width="@dimen/dimen_0_dp"
             android:layout_height="@dimen/dimen_0_dp"/>

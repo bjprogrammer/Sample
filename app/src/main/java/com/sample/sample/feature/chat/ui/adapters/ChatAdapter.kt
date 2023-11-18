@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sample.sample.R
 import com.sample.sample.feature.chat.model.Message
 import com.sample.sample.feature.chat.ui.viewholders.ChatViewHolder
-import com.sample.sample.feature.chat.ui.viewholders.OrderViewHolder
 
 class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var data: MutableList<Message> = arrayListOf()
@@ -33,7 +32,7 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 )
             }
         }
-        return OrderViewHolder(binding)
+        return ChatViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
