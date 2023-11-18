@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="order"  type="com.sample.sample.feature.chat.model.MessageList"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_12_dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/dimen_50_dp"
+            android:layout_height="@dimen/dimen_50_dp"
+            android:scaleType="fitXY"
+            app:url="@{order.imageURL}"
+            android:layout_marginStart="@dimen/dimen_10_dp"
+            tools:src="@android:drawable/sym_action_chat"
+            app:layout_constraintTop_toTopOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_18_dp"
+            android:layout_marginEnd="@dimen/dimen_10_dp"
+            android:text="@{order.title}"
+            android:textColor="@color/primaryText"
+            android:textSize="@dimen/txt_14_sp"
+            android:ellipsize="end"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toEndOf="@id/ivLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvDate"
+            tools:text="Flipkart Support" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDate"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_12_dp"
+            app:date="@{order.latestMessageTimestamp}"
+            android:textColor="@color/primaryText"
+            android:textSize="@dimen/txt_14_sp"
+            android:textAlignment="textStart"
+            app:layout_constraintTop_toTopOf="@id/tvTitle"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="15/09/2021" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOrder"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primaryText"
+            android:gravity="start"
+            android:ellipsize="end"
+            app:order="@{order.orderId}"
+            android:textSize="@dimen/txt_16_sp"
+            android:layout_marginEnd="@dimen/dimen_10_dp"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintEnd_toStartOf="@id/tvDate"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="Order OD3929i329910" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMsg"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tertiaryText"
+            android:gravity="start"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/dimen_10_dp"
+            app:msg="@{order.messages}"
+            android:textSize="@dimen/txt_14_sp"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintEnd_toStartOf="@id/tvDate"
+            app:layout_constraintTop_toBottomOf="@id/tvOrder"
+            tools:text="Hello! How are you?" />
+
+        <View
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="@dimen/dimen_1_dp"
+            android:layout_marginTop="@dimen/dimen_18_dp"
+            android:background="@color/tertiaryText"
+            app:layout_constraintTop_toBottomOf="@id/tvMsg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable name="order"  type="com.sample.sample.feature.chat.model.MessageList"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dimen_12_dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/dimen_50_dp"
+            android:layout_height="@dimen/dimen_50_dp"
+            android:scaleType="fitXY"
+            app:url="@{order.imageURL}"
+            android:layout_marginStart="@dimen/dimen_18_dp"
+            tools:src="@android:drawable/sym_action_chat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_18_dp"
+            android:layout_marginEnd="@dimen/dimen_10_dp"
+            android:text="@{order.title}"
+            android:textColor="@color/primaryText"
+            android:textSize="@dimen/txt_18_sp"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toEndOf="@id/ivLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/ivLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Flipkart Support" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="@dimen/dimen_1_dp"
+            android:layout_marginTop="@dimen/dimen_6_dp"
+            android:background="@color/tertiaryText"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/msg_list"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/etMsg"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="@dimen/dimen_0_dp"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/type_a_message"
+            android:padding="@dimen/dimen_18_dp"
+            android:textColorHint="@color/secondaryText"
+            android:textColor="@color/primaryText"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="@dimen/dimen_10_dp"
+            android:layout_marginEnd="@dimen/dimen_10_dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/etMsg"
+            android:background="@null"
+            app:layout_constraintTop_toTopOf="@id/etMsg"
+            app:layout_constraintBottom_toBottomOf="@id/etMsg"
+            android:src="@android:drawable/ic_menu_send"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
